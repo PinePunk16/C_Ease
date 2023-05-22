@@ -123,7 +123,7 @@
     )
 
     char* List_to_string(List this) {
-        char buffer[64] = "[";
+        char buffer[64] = "[";  // Size to be made variable
         for(size_t index = 0; index < this.size; index++) {
             switch(this.value[index].selected_type) {
                 case INTEGER:
