@@ -7,7 +7,7 @@
     #include <stdlib.h>
     #include <string.h>
 
-    #define MAX_INPUT_LINE_SIZE         126
+    #define MAX_INPUT_LINE_SIZE         256
 
 
 
