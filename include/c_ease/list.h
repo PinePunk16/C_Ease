@@ -6,13 +6,13 @@
     #include <stdlib.h>
     #include <string.h>
 
-    #include "generic.h"
+    #include "variable.h"
     #include "inout.h"
 
 
     
     typedef struct {
-        generic* value;
+        variable* value;
         size_t size;
     } List;
 
@@ -26,8 +26,8 @@
     void List_append_integer(List* this, const long long value) {
         (this -> size)++;
 
-        if(this -> value == NULL) this -> value = malloc((this -> size) * sizeof(generic));
-        else this -> value = realloc(this -> value, (this -> size) * sizeof(generic));
+        if(this -> value == NULL) this -> value = malloc((this -> size) * sizeof(variable));
+        else this -> value = realloc(this -> value, (this -> size) * sizeof(variable));
 
         if(this -> value == NULL) exit(1); //TBU
 
@@ -37,8 +37,8 @@
     void List_append_unsigned_integer(List* this, const unsigned long long value) {
         (this -> size)++;
 
-        if(this -> value == NULL) this -> value = malloc((this -> size) * sizeof(generic));
-        else this -> value = realloc(this -> value, (this -> size) * sizeof(generic));
+        if(this -> value == NULL) this -> value = malloc((this -> size) * sizeof(variable));
+        else this -> value = realloc(this -> value, (this -> size) * sizeof(variable));
 
         if(this -> value == NULL) exit(1); //TBU
 
@@ -48,8 +48,8 @@
     void List_append_float_point(List* this, const long double value) {
         (this -> size)++;
 
-        if(this -> value == NULL) this -> value = malloc((this -> size) * sizeof(generic));
-        else this -> value = realloc(this -> value, (this -> size) * sizeof(generic));
+        if(this -> value == NULL) this -> value = malloc((this -> size) * sizeof(variable));
+        else this -> value = realloc(this -> value, (this -> size) * sizeof(variable));
 
         if(this -> value == NULL) exit(1); //TBU
 
@@ -60,8 +60,8 @@
     void List_append_string(List* this, const char* value) {
         (this -> size)++;
 
-        if(this -> value == NULL) this -> value = malloc((this -> size) * sizeof(generic));
-        else this -> value = realloc(this -> value, (this -> size) * sizeof(generic));
+        if(this -> value == NULL) this -> value = malloc((this -> size) * sizeof(variable));
+        else this -> value = realloc(this -> value, (this -> size) * sizeof(variable));
 
         if(this -> value == NULL) exit(1); //TBU
 
@@ -71,8 +71,8 @@
     void List_append_pointer(List* this, void* value) {
         (this -> size)++;
 
-        if(this -> value == NULL) this -> value = malloc((this -> size) * sizeof(generic));
-        else this -> value = realloc(this -> value, (this -> size) * sizeof(generic));
+        if(this -> value == NULL) this -> value = malloc((this -> size) * sizeof(variable));
+        else this -> value = realloc(this -> value, (this -> size) * sizeof(variable));
 
         if(this -> value == NULL) exit(1); //TBU
 

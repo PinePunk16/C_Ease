@@ -3,7 +3,7 @@
 #ifndef MAIN_C
     #define MAIN_C
 
-    #include "c_ease/generic.h"
+    #include "c_ease/variable.h"
     #include "c_ease/inout.h"
     #include "c_ease/list.h"
 
@@ -17,7 +17,7 @@
             print("Insert a number: ");
             float current = float_input();
             List_append_float_point(&list, current);
-            generic gen = auto(current);
+            variable gen = auto(current);
         }
         line(List_to_string(list));
 
