@@ -3,11 +3,13 @@
 #ifndef MAIN_C
     #define MAIN_C
 
-    #include "c_ease/variable.h"
     #include "c_ease/in_out.h"
     #include "c_ease/list.h"
     #include "c_ease/loop.h"
+    #include "c_ease/variable.h"
+    
 
+    
     int main() {
         List list = List_new();
 
