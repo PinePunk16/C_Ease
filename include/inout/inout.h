@@ -30,9 +30,9 @@
         long long:              "%lld", \
         unsigned long long:     "%llu", \
         \
-        float:                  "%g", \
-        double:                 "%g", \
-        long double:            "%g", \
+        float:                  "%f", \
+        double:                 "%lf", \
+        long double:            "%Lf", \
         \
         default:                "%p" \
     )
