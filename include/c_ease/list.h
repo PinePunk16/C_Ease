@@ -73,6 +73,7 @@
         (this -> value)[(this -> size) - 1].selected_type = FLOAT_POINT;
         (this -> value)[(this -> size) - 1].float_point = value;
     }
+    // To allocate or reallocate memory before copying string
     void List_append_string(List* this, const char* value) {
         (this -> size)++;
 
