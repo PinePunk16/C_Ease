@@ -4,3 +4,4 @@ Currently has:
 - Functions for easier input and ouput
 - Some casting and string manipulation
 - An almost-working list "class"
+- An almost-working generic variable type
