@@ -13,10 +13,7 @@
 
         for(size_t index = 0; index < 3; index++) {
             print("Insert a number: ");
-            long double current = float_input();
-            line(current);
-            
-            List_append(&list, current);
+            List_append_float_point(&list, float_input());
         }
         line(List_to_string(list));
 

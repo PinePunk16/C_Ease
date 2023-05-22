@@ -18,7 +18,7 @@
         POINTER
     } type;
 
-    typedef union {
+    typedef struct {
         long long integer;
         unsigned long long unsigned_integer;
         long double float_point;
@@ -96,7 +96,7 @@
         (this -> value)[(this -> size) - 1].pointer = value;
     }
 
-    // This doesn't work, look at the rep's issue
+    // This still doesn't work
     #define List_append(this,value)         _Generic((value), \
         char:                                   List_append_integer(this, (long long) value), \
         signed char:                            List_append_integer(this, (long long) value), \
@@ -123,7 +123,6 @@
     )
 
     char* List_to_string(List this) {
-        line(this.size);
         char buffer[64] = "[";
         for(size_t index = 0; index < this.size; index++) {
             switch(this.value[index].selected_type) {
