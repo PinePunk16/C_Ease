@@ -60,7 +60,10 @@
         ); \
     })
     #define to_integer(value)                       atoi(to_string(value))
-    #define to_floating_point(value)                atof(to_string(value))
+    #define to_float(value)                         atof(to_string(value))
+
+    #define integer_input(value)                    to_integer(input())
+    #define float_input(value)                      to_float(input())
 
     #define join(a,b)                               ({ \
         char buffer[strlen(to_string(a)) + strlen(to_string(b)) + 1]; \
