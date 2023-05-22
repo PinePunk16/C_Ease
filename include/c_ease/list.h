@@ -6,28 +6,11 @@
     #include <stdlib.h>
     #include <string.h>
 
+    #include "generic.h"
     #include "inout.h"
 
 
-
-    typedef enum {
-        INTEGER,
-        UNSIGNED_INTEGER,
-        FLOAT_POINT,
-        STRING,
-        POINTER
-    } type;
-
-    typedef struct {
-        long long integer;
-        unsigned long long unsigned_integer;
-        long double float_point;
-        char* string;
-        void* pointer;
-
-        type selected_type;
-    } generic;
-
+    
     typedef struct {
         generic* value;
         size_t size;

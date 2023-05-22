@@ -3,6 +3,7 @@
 #ifndef MAIN_C
     #define MAIN_C
 
+    #include "c_ease/generic.h"
     #include "c_ease/inout.h"
     #include "c_ease/list.h"
 
