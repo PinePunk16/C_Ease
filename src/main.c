@@ -3,8 +3,8 @@
 #ifndef MAIN_C
     #define MAIN_C
 
-    #include "inout/inout.h"
-    #include "inout/list.h"
+    #include "c_ease/inout.h"
+    #include "c_ease/list.h"
 
 
 
