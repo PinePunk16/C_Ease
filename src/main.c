@@ -20,7 +20,7 @@
 
             // DEBUG
             if(IS_FLOAT_POINT(current)) line(current);
-            variable var = auto_DEBUG(current);
+            //variable var = auto_DEBUG(current);
         }   
         line(List_to_string(list));
 
