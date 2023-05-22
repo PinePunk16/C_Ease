@@ -36,7 +36,9 @@
         \
         default:                "%p" \
     )
-
+    
+    // print and line to be update to work with __VA_ARGS__
+    
     #define print(value)                            printf(format_of(value), value)
 
     #define line(value)                             ({ \
@@ -69,10 +71,6 @@
         ((float_result - (long long) float_result) >= 0.5)? ((long long) float_result) + 1: (long long) float_result; \
     })
     #define to_float(value)                         atof(to_string(value))
-
-    // These two are pretty useless, might delete later
-    #define integer_input(value)                    to_integer(input())
-    #define float_input(value)                      to_float(input())
 
     #define join(a,b)                               ({ \
         char buffer[strlen(to_string(a)) + strlen(to_string(b)) + 1]; \
