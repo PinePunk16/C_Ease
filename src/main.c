@@ -15,7 +15,9 @@
 
         for(size_t index = 0; index < 3; index++) {
             print("Insert a number: ");
-            List_append_float_point(&list, float_input());
+            float current = float_input();
+            List_append_float_point(&list, current);
+            generic gen = auto(current);
         }
         line(List_to_string(list));
 

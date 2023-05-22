@@ -21,18 +21,24 @@
         type selected_type;
     } generic;
 
-     // Add other types...
+    // this has the same issue of List_append()
     #define auto(value)     _Generic((value), \
         int: ({ \
             generic result; \
             result.selected_type = INTEGER; \
-            result.intger = (long long) value; \
+            result.integer = (long long) value; \
+            result; \
+        }), \
+        unsigned int: ({ \
+            generic result; \
+            result.selected_type = UNSIGNED_INTEGER; \
+            result.unsigned_integer = (unsigned long long) value; \
             result; \
         }), \
         float: ({ \
             generic result; \
             result.selected_type = FLOAT_POINT; \
-            result.intger = (long double) value; \
+            result.float_point = (long double) value; \
             result; \
         }), \
         char*: ({ \
@@ -41,6 +47,12 @@
             strcpy(result.string, (char*) value); \
             result; \
         }), \
+        default: ({ \
+            generic result; \
+            result.selected_type = POINTER; \
+            result.pointer = (void*) value; \
+            result; \
+        }) \
     )
 
 #endif
