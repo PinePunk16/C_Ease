@@ -7,6 +7,8 @@
     #include <stdlib.h>
     #include <string.h>
 
+    #include "loop.h"
+
     #define MAX_INPUT_LINE_SIZE         256
 
 
@@ -36,13 +38,15 @@
         \
         default:                "%p" \
     )
-    
-    // print and line to be update to work with __VA_ARGS__
-    
-    #define print(value)                            printf(format_of(value), value)
 
-    #define line(value)                             ({ \
-        print(value); \
+    #define print(...)          ({ \
+        char* values[] = {__VA_ARGS__ }; \
+        for_range(index, 0, sizeof((char*[]){__VA_ARGS__}) / sizeof(char*)) printf(format_of(values[index]), values[index]); \
+        NULL; \
+    })
+
+    #define line(...)                             ({ \
+        print(__VA_ARGS__); \
         puts(""); \
         NULL; \
     })
