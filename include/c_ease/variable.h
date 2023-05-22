@@ -75,4 +75,19 @@
         }) \
     )
 
+    #define auto_DEBUG(value)       ( \
+        (IS_FLOAT_POINT(value))? ({ \
+            variable result; \
+            result.selected_type = FLOAT_POINT; \
+            result.float_point = (long double) value; \
+            result; \
+        }): \
+        ({ \
+            variable result; \
+            result.selected_type = POINTER; \
+            result.pointer = (void*) value; \
+            result; \
+        }) \
+    )
+
 #endif
