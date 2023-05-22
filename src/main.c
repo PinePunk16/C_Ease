@@ -4,7 +4,7 @@
     #define MAIN_C
 
     #include "c_ease/variable.h"
-    #include "c_ease/inout.h"
+    #include "c_ease/in_out.h"
     #include "c_ease/list.h"
 
 

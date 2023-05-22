@@ -7,7 +7,7 @@
     #include <string.h>
 
     #include "variable.h"
-    #include "inout.h"
+    #include "in_out.h"
 
 
     
