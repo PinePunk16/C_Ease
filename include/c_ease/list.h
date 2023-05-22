@@ -8,7 +8,7 @@
 
     #include "variable.h"
     #include "in_out.h"
-
+    #include "loop.h"
 
     
     typedef struct {
@@ -37,7 +37,7 @@
 
     char* List_to_string(List this) {
         char buffer[64] = "[";  // Size to be made variable
-        for(size_t index = 0; index < this.size; index++) {
+        for_range(index, 0, this.size) {
             switch(this.value[index].selected_type) {
                 case INTEGER:
                     strcat(buffer, to_string(this.value[index].type_pool.integer));
@@ -65,6 +65,16 @@
     }
 
     List List_cleanup(List this) {
+        for_range(index, 0, this.size) {
+            switch(this.value[index].selected_type) {
+                case STRING:
+                    if(this.value[index].type_pool.string != NULL) free(this.value[index].type_pool.string);
+                    break;
+                case POINTER:
+                    if(this.value[index].type_pool.pointer != NULL) free(this.value[index].type_pool.pointer);
+                    break;
+            }
+        }
         if(this.value != NULL) free(this.value);
         this.size = 0;
     }

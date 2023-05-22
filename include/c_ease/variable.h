@@ -120,9 +120,9 @@
             variable result; \
             result; \
         }), \
-        \
         default: ({ \
             variable result; \
+            result.selected_type = POINTER; \
             result; \
         }) \
     )

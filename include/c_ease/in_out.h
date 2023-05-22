@@ -70,12 +70,14 @@
     })
 
     #define to_integer(value)                       atoi(to_string(value))
-    #define to_nearest_integer(value)               ({ \
-        long double float_result = atof(to_string(value)); \
-        ((float_result - (long long) float_result) >= 0.5)? ((long long) float_result) + 1: (long long) float_result; \
-    })
+
     #define to_float(value)                         atof(to_string(value))
 
+    #define to_nearest_integer(value)               ({ \
+        long double float_result = to_float(value); \
+        ((float_result - (long long) float_result) >= 0.5)? ((long long) float_result) + 1: (long long) float_result; \
+    })
+    
     #define join(a,b)                               ({ \
         char buffer[strlen(to_string(a)) + strlen(to_string(b)) + 1]; \
         strcpy(buffer, to_string(a)); \
