@@ -26,11 +26,20 @@
         type selected_type;
     } variable;
 
-    #define IS_FLOAT(value)                 _Generic((value), float: true, default: false)
-    #define IS_DOUBLE(value)                _Generic((value), double: true, default: false)
-    #define IS_LONG_DOUBLE(value)           _Generic((value), long double: true, default: false)
-    
+    #define IS_FLOAT(value)                 _Generic((value), float: true,          default: false)
+    #define IS_DOUBLE(value)                _Generic((value), double: true,         default: false)
+    #define IS_LONG_DOUBLE(value)           _Generic((value), long double: true,    default: false)
+
     #define IS_FLOAT_POINT(value)           (IS_FLOAT(value) || IS_DOUBLE(value) || IS_LONG_DOUBLE(value))
+
+    #define IS_CHAR(value)                  _Generic((value), char: true,           default: false)
+    #define IS_SIGNED_CHAR(value)           _Generic((value), signed char: true,    default: false)
+    #define IS_SHORT(value)                 _Generic((value), short: true,          default: false)
+    #define IS_INT(value)                   _Generic((value), int: true,            default: false)
+    #define IS_LONG(value)                  _Generic((value), long: true,           default: false)
+    #define IS_LONG_LONG(value)             _Generic((value), long long: true,      default: false)
+
+    #define IS_SIGNED_INTEGER(value)        (IS_CHAR(value) || IS_SIGNED_CHAR(value) || IS_SHORT(value) || IS_INT(value) || IS_LONG(value) || IS_LONG_LONG(value))
 
     // this has the same issue of List_append()
     #define auto(value)     _Generic((value), \
