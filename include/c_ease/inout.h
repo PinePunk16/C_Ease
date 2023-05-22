@@ -39,8 +39,11 @@
 
     #define print(value)                            printf(format_of(value), value)
 
-    #define line(value)                             print(value); \
-                                                    puts("")
+    #define line(value)                             ({ \
+        print(value); \
+        puts(""); \
+        NULL; \
+    })
 
     #define input()                                 ({ \
         char buffer[MAX_INPUT_LINE_SIZE + 1]; \

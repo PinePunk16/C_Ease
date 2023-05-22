@@ -17,7 +17,7 @@
             print("Insert a number: ");
             float current = float_input();
             List_append_float_point(&list, current);
-            if(IS_LONG_DOUBLE(current)) line(current);      // WHY IS A NEW LINE MADE HERE?????
+            if(IS_LONG_DOUBLE(current)) line(current);
         }
         line(List_to_string(list));
 
