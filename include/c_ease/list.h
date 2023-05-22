@@ -96,6 +96,7 @@
         (this -> value)[(this -> size) - 1].pointer = value;
     }
 
+    // This doesn't work, look at the rep's issue
     #define List_append(this,value)         _Generic((value), \
         char:                                   List_append_integer(this, (long long) value), \
         signed char:                            List_append_integer(this, (long long) value), \

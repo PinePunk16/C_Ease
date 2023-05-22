@@ -67,6 +67,7 @@
     })
     #define to_float(value)                         atof(to_string(value))
 
+    // These two are pretty useless, might delete later
     #define integer_input(value)                    to_integer(input())
     #define float_input(value)                      to_float(input())
 
