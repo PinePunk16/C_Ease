@@ -1,2 +1,6 @@
-# InOut
-A simple C library for easy input and output, with some hints of casting and string manipulation.
+# C_Ease
+Project for a c superset to simplify the language's usage.
+Currently has:
+- Functions for easier input and ouput
+- Some casting and string manipulation
+- An almost-working list "class"
