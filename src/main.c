@@ -6,11 +6,14 @@
     #include "c_ease/variable.h"
     #include "c_ease/in_out.h"
     #include "c_ease/list.h"
+    #include "c_ease/loop.h"
+    
+    
 
     int main() {
         List list = List_new();
 
-        for(size_t index = 0; index < 3; index++) {
+        for_range(index, 0, 3) {
             print("Insert a number: ");
             List_append(list, float_input());
         }   
