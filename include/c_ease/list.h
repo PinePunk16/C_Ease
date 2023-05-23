@@ -36,32 +36,52 @@
     #define List_append(this,value)         List_append_variable(&this, auto(value))
 
     char* List_to_string(List this) {
-        char buffer[64] = "[";  // Size to be made variable
+        size_t buffer_size = 2;
+        char* buffer = malloc(buffer_size * sizeof(char));
+        if(buffer == NULL) exit(1);     // TBU
+
+        strcpy(buffer, "[");
+
         for_range(index, 0, this.size) {
-            switch(this.value[index].selected_type) {
-                case INTEGER:
-                    strcat(buffer, to_string(this.value[index].type_pool.integer));
-                    break;
-                case UNSIGNED_INTEGER:
-                    strcat(buffer, to_string(this.value[index].type_pool.unsigned_integer));
-                    break;
-                case FLOAT_POINT:
-                    strcat(buffer, to_string(this.value[index].type_pool.float_point));
-                    break;
-                case STRING:
-                    strcat(buffer, to_string(this.value[index].type_pool.string));
-                    break;
-                case POINTER:
-                    strcat(buffer, to_string(this.value[index].type_pool.pointer));
-                    break;
-                default:
-                    strcat(buffer, "???");
+            if(this.value[index].selected_type == STRING) {
+                buffer_size += strlen(this.value[index].type_pool.string);
+                buffer = realloc(buffer, buffer_size * sizeof(char));
+                strcat(buffer, this.value[index].type_pool.string);
+            } else {
+                buffer_size += 64;      // TBU
+                buffer = realloc(buffer, buffer_size * sizeof(char));
+                if(buffer == NULL) exit(1);     // TBU
+                switch(this.value[index].selected_type) {
+                    case INTEGER:
+                        strcat(buffer, to_string(this.value[index].type_pool.integer));
+                        break;
+                    case UNSIGNED_INTEGER:
+                        strcat(buffer, to_string(this.value[index].type_pool.unsigned_integer));
+                        break;
+                    case FLOAT_POINT:
+                        strcat(buffer, to_string(this.value[index].type_pool.float_point));
+                        break;
+                    case STRING:
+                        break;
+                    case POINTER:
+                        strcat(buffer, to_string(this.value[index].type_pool.pointer));
+                        break;
+                    default:
+                        strcat(buffer, "???");
+                }
             }
+            buffer_size += 3;
+            buffer = realloc(buffer, buffer_size * sizeof(char));
+            if(buffer == NULL) exit(1);     // TBU
             strcat(buffer, ", ");
         }
         buffer[strlen(buffer) - 2] = '\0';
         strcat(buffer, "]");
-        return strdup(buffer);
+
+        char result[strlen(buffer) + 1];
+        strcpy(result, buffer);
+        free(buffer);
+        return strdup(result);
     }
 
     List List_cleanup(List this) {

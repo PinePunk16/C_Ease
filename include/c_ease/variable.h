@@ -118,6 +118,7 @@
         \
         char*: ({ \
             variable result; \
+            result.selected_type = STRING; \
             result; \
         }), \
         default: ({ \
