@@ -13,9 +13,8 @@
     int main() {
         List list = List_new();
 
-        for_range(index, 0, 10) {
-            List_append(list, index);
-        }   
+        for_range(index, 0, 10) List_append(list, index);
+
         line("Your list is: ", List_to_string(list));
 
         List_cleanup(list);
