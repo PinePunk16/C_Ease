@@ -14,7 +14,7 @@
         a = "John";
         string b = a;
         line(b, a);
-        
+
         a = "Hi";
         line(b, a);
 
