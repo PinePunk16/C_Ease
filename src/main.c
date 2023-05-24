@@ -20,6 +20,8 @@
         test[1] = "wide ";
         for_range(index, 0, 3) print(test[index]);
         line();
+        test[0] = join(test[0], test[1]);
+        line(join(test[0], test[2]));
 
         for_range(index, 0, 10) List_append(list, index);
 

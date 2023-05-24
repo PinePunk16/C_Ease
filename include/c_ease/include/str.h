@@ -11,6 +11,8 @@
 
     typedef char* string;
 
+    #define string_return(str)                      return strdup(str)
+    
     #define to_string(value)                        ({ \
         _Generic((value), \
             string: (value), \
@@ -30,14 +32,12 @@
         long double float_result = to_float(value); \
         ((float_result - (long long) float_result) >= 0.5)? ((long long) float_result) + 1: (long long) float_result; \
     })
-    
+
     #define join(a,b)                               ({ \
         char buffer[strlen(to_string(a)) + strlen(to_string(b)) + 1]; \
         strcpy(buffer, to_string(a)); \
         strcat(buffer, to_string(b)); \
         strdup(buffer); \
     })
-
-    #define copy(str)                               strdup(str)
 
 #endif

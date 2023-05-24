@@ -82,7 +82,7 @@
         char result[strlen(buffer) + 1];
         strcpy(result, buffer);
         free(buffer);
-        return strdup(result);
+        string_return(result);
     }
 
     List List_cleanup(List this) {
