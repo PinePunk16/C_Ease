@@ -6,4 +6,7 @@
     // Inverted start and end don't work yet
     #define for_range(index,start,end)      for(long long index = start; ((start < end)? index < end : index > end); index += ((start < end)? 1 : index -1))
 
+    // To move to proper file
+    #define start(...)                      int main(__VA_ARGS__)
+    
 #endif
