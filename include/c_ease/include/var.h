@@ -1,4 +1,4 @@
-// variable.h
+// var.h
 
 #ifndef GENERIC_H
     #define GENERIC_H
@@ -22,107 +22,107 @@
             long long integer;
             unsigned long long unsigned_integer;
             long double float_point;
-            char* string;
+            string string;
             void* pointer;
         } type_pool;
         type selected_type;
-    } variable;
+    } var;
 
     // string and default to be updated
     #define auto(value)     _Generic((value), \
         char: ({ \
-            variable result; \
+            var result; \
             result.selected_type = INTEGER; \
             result.type_pool.integer = (long long) value; \
             result; \
         }), \
         signed char: ({ \
-            variable result; \
+            var result; \
             result.selected_type = INTEGER; \
             result.type_pool.integer = (long long) value; \
             result; \
         }), \
         unsigned char: ({ \
-            variable result; \
+            var result; \
             result.selected_type = UNSIGNED_INTEGER; \
             result.type_pool.unsigned_integer = (unsigned long long) value; \
             result; \
         }), \
         short: ({ \
-            variable result; \
+            var result; \
             result.selected_type = INTEGER; \
             result.type_pool.integer = (long long) value; \
             result; \
         }), \
         unsigned short: ({ \
-            variable result; \
+            var result; \
             result.selected_type = UNSIGNED_INTEGER; \
             result.type_pool.unsigned_integer = (unsigned long long) value; \
             result; \
         }), \
         int: ({ \
-            variable result; \
+            var result; \
             result.selected_type = INTEGER; \
             result.type_pool.integer = (long long) value; \
             result; \
         }), \
         unsigned int: ({ \
-            variable result; \
+            var result; \
             result.selected_type = UNSIGNED_INTEGER; \
             result.type_pool.unsigned_integer = (unsigned long long) value; \
             result; \
         }), \
         long: ({ \
-            variable result; \
+            var result; \
             result.selected_type = INTEGER; \
             result.type_pool.integer = (long long) value; \
             result; \
         }), \
         unsigned long: ({ \
-            variable result; \
+            var result; \
             result.selected_type = UNSIGNED_INTEGER; \
             result.type_pool.unsigned_integer = (unsigned long long) value; \
             result; \
         }), \
         long long: ({ \
-            variable result; \
+            var result; \
             result.selected_type = INTEGER; \
             result.type_pool.integer = (long long) value; \
             result; \
         }), \
         unsigned long long: ({ \
-            variable result; \
+            var result; \
             result.selected_type = UNSIGNED_INTEGER; \
             result.type_pool.unsigned_integer = (unsigned long long) value; \
             result; \
         }), \
         \
         float: ({ \
-            variable result; \
+            var result; \
             result.selected_type = FLOAT_POINT; \
             result.type_pool.float_point = (long double) value; \
             result; \
         }), \
         double: ({ \
-            variable result; \
+            var result; \
             result.selected_type = FLOAT_POINT; \
             result.type_pool.float_point = (long double) value; \
             result; \
         }), \
         long double: ({ \
-            variable result; \
+            var result; \
             result.selected_type = FLOAT_POINT; \
             result.type_pool.float_point = (long double) value; \
             result; \
         }), \
         \
-        char*: ({ \
-            variable result; \
+        string: ({ \
+            var result; \
             result.selected_type = STRING; \
             result; \
         }), \
         default: ({ \
-            variable result; \
+            var result; \
             result.selected_type = POINTER; \
             result; \
         }) \
