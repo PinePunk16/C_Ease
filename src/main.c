@@ -10,13 +10,16 @@
     start() {
         List list = List_new();
 
-        string a;
-        a = "John";
-        string b = a;
-        line(b, a);
-
-        a = "Hi";
-        line(b, a);
+        string test[3];
+        test[0] = "Hello ";
+        test[1] = "world ";
+        test[2] = "lol.";
+        for_range(index, 0, 3) print(test[index]);
+        line();
+        test[0] = test[1];
+        test[1] = "wide ";
+        for_range(index, 0, 3) print(test[index]);
+        line();
 
         for_range(index, 0, 10) List_append(list, index);
 
